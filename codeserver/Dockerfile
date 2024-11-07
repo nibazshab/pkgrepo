@@ -1,6 +1,6 @@
 FROM alpine AS build
 
-ARG CODESERVER="https://github.com/coder/code-server/releases/download/v4.91.1/code-server-4.91.1-linux-amd64.tar.gz"
+ARG CODESERVER="https://github.com/coder/code-server/releases/download/v4.95.1/code-server-4.95.1-linux-amd64.tar.gz"
 ARG DUMBINIT="https://github.com/Yelp/dumb-init/releases/latest/download/dumb-init_1.2.5_x86_64"
 
 WORKDIR /rootfs

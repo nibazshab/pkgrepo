@@ -4,10 +4,6 @@
 
 Aria2 下载工具，具有自动更新 bt-tracker 功能
 
-### ariang
-
-Aria2 Web 管理面板
-
 ### codeserver
 
 Web 版 VS Code 编辑器，可自定义启动脚本，例如启动容器时自动换源。镜像基于 Arch Linux

@@ -1,6 +1,0 @@
-services:
-  ariang:
-    image: phhb/ariang
-    restart: unless-stopped
-    ports:
-      - 0.0.0.0:6880:6880
