@@ -18,7 +18,8 @@ RUN apk add --no-cache \
     php-session \
     composer \
     su-exec \
-    s6
+    s6 \
+    php-exif
 
 COPY rootfs /
 RUN mkdir /temp
