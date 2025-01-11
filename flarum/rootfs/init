@@ -21,4 +21,4 @@ fi
 chown -hR 1000:1000 /init.d /temp /var/log /var/lib/nginx
 chown -hR 1000:1000 /data/flarum
 
-exec su-exec 1000:1000 /bin/s6-svscan /init.d
+exec su-exec 1000:1000 /usr/bin/s6-svscan /init.d
