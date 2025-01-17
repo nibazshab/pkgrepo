@@ -1,0 +1,4 @@
+[Unit]
+Description=aria2 bt tracker
+[Service]
+ExecStart=/home/data/aria2/tracker.sh
