@@ -4,7 +4,7 @@
   mkdir /data/rc.d
 }
 
-if [ -n $(ls -A /data/rc.d) ]; then
+if [ -n "$(ls -A /data/rc.d)" ]; then
   for i in /data/rc.d/*.sh; do
     if [ -f $i ]; then
       chmod +x $i
