@@ -22,6 +22,5 @@ COPY --from=build /rootfs /
 RUN ln -sf /code-server/bin/code-server /usr/bin \
  && ln -sf /dumb-init /usr/bin
 
-RUN sed -i 's/#DisableSandbox/DisableSandbox/g' /etc/pacman.conf
 VOLUME ["/data"]
 ENTRYPOINT ["/init", "--bind-addr", "0.0.0.0:8081"]
