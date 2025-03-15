@@ -1,0 +1,18 @@
+services:
+  firefox:
+    image: jlesage/firefox
+    restart: no
+    environment:
+      - TZ=Asia/Shanghai
+      - ENABLE_CJK_FONT=1
+      - VNC_PASSWORD=password
+      - PACKAGES_MIRROR=https://mirrors.aliyun.com/alpine
+    ports:
+      - 0.0.0.0:15800:5800
+    volumes:
+      - ./data:/config
+    deploy:
+      resources:
+        limits:
+          cpus: '0.70'
+          memory: 1.5g
