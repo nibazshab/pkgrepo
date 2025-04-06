@@ -1,16 +1,8 @@
 #!/bin/sh
 
-[[ ! -d /data/rc.d ]] && {
-  mkdir /data/rc.d
-}
+INIT_CUSTOM="/data/rc.sh"
 
-if [ -n "$(ls -A /data/rc.d)" ]; then
-  for i in /data/rc.d/*.sh; do
-    if [ -f $i ]; then
-      chmod +x $i
-      $i
-    fi
-  done
-fi
+touch $INIT_CUSTOM
+sh $INIT_CUSTOM
 
-exec dumb-init /usr/bin/code-server --user-data-dir /data "$@"
+exec /dumb-init /usr/bin/code-server --user-data-dir /data "$@"
