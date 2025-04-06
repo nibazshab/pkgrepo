@@ -22,7 +22,6 @@ RUN apk add --no-cache \
     php-exif
 
 COPY rootfs /
-RUN mkdir /temp
 
 RUN chmod +x /init /init.d/*/run /init.d/*/finish
 
