@@ -1,12 +1,13 @@
 #!/bin/sh
 
-file="/home/data/aria2/aria2.conf"
-url=http://localhost:6800/jsonrpc
+CONFIG_FILE="/home/data/aria2/aria2.conf"
+RPC_URL="http://localhost:6800/jsonrpc"
+TRACKER_LIST="https://trackerslist.com/all_aria2.txt"
 
-tracker=$(curl -sL https://trackerslist.com/all_aria2.txt)
-secret="$(awk -F= '/^rpc-secret/ {print $2}' $file)"
+SECRET=$(awk -F= '/^rpc-secret/ {print $2}' $CONFIG_FILE)
+TRACKER=$(curl -fsL $TRACKER_LIST)
 
-[ -n $tracker ] && {
-  curl -d '{"id":"1","method":"aria2.changeGlobalOption","params":["token:'$secret'",{"bt-tracker":"'$tracker'"}]}' $url
-  sed -i "s@^\(bt-tracker=\).*@\1$tracker@" $file
+[[ -n $TRACKER ]] && {
+  curl -d '{"id":"1","method":"aria2.changeGlobalOption","params":["token:'$SECRET'",{"bt-tracker":"'$TRACKER'"}]}' $RPC_URL
+  sed -i "s@^\(bt-tracker=\).*@\1$TRACKER@" $CONFIG_FILE
 }
