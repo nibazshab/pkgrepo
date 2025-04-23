@@ -1,0 +1,15 @@
+services:
+  codeserver:
+    image: phhb/codeserver
+    restart: unless-stopped
+    environment:
+      - PASSWORD=password
+    ports:
+      - 0.0.0.0:18081:8081
+      - 0.0.0.0:20080:8080
+    volumes:
+      - ./home:/root
+      - ./data:/data
+    command: |
+          --disable-update-check
+          --disable-telemetry

@@ -1,0 +1,4 @@
+[Unit]
+Description=aria2 bt tracker
+[Service]
+ExecStart=/usr/local/aria2/tracker.sh

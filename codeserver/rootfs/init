@@ -1,0 +1,8 @@
+#!/bin/sh
+
+INIT_CUSTOM="/data/rc.sh"
+
+touch $INIT_CUSTOM
+sh $INIT_CUSTOM
+
+exec /dumb-init /code-server/bin/code-server --bind-addr 0.0.0.0:8081 --user-data-dir /data "$@"

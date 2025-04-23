@@ -1,0 +1,15 @@
+#!/bin/sh
+
+INIT_CUSTOM="/data/rc.sh"
+
+touch $INIT_CUSTOM
+sh $INIT_CUSTOM
+
+[[ ! -e /data/flarum/flarum ]] && {
+  composer create-project flarum/flarum /data/flarum
+  composer clear-cache
+}
+
+chown -hR 1000:1000 /init.d /var /data/flarum
+
+exec su-exec 1000:1000 /usr/bin/s6-svscan /init.d
